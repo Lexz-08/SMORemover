@@ -36,7 +36,8 @@ namespace SMORemover
 			{
 				RegistryKey? key = Registry.CurrentUser.OpenSubKey("Software\\Classes\\CLSID", true);
 				RegistryKey key1 = key.CreateSubKey("{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}", true);
-				RegistryKey key2 = key1.CreateSubKey("InprocServer32");
+				RegistryKey key2 = key1.CreateSubKey("InprocServer32", true);
+				key2.SetValue("", "");
 
 				key2.Close();
 				key1.Close();
